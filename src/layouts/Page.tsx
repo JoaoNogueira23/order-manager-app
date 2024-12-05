@@ -13,8 +13,9 @@ export default function Page({children, sx, ...rest}: PropsWithChildren & PaperP
             backgroundColor: 'background.default',
             overflowY: 'auto',
             border: 'none',
-            width: '100vw',
             height: 'calc(100vh - 7.2rem)',
+            overflow: 'hidden',
+            flexWrap: 'wrap',
             ...sx
         }}
         {...rest}

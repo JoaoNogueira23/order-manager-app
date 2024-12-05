@@ -3,18 +3,19 @@ import useAppContext from "../../../hooks/useAppContext"
 
 type PropsCard ={
     title: string
-    number: number
-    loading: boolean
+    number: string
+    loading: boolean,
+    isOccupied: boolean
 }
 
 
-export default function Card({title, number, loading}: PropsCard) {
+export default function Card({title, number, loading, isOccupied}: PropsCard) {
     const {darkMode} = useAppContext()
 
     return(
         <Box
         sx={{
-            bgcolor: 'background.paper',
+            bgcolor: isOccupied ?  '#F4B8B8' : '#A8D5BA',
             boxShadow: 'rgba(0,0,0,0.12) 0px 1px 3px, rgba(0,0,0,0.24) 0px 1px 2px',
             borderRadius: '5px',
             py: '1rem',
@@ -23,10 +24,10 @@ export default function Card({title, number, loading}: PropsCard) {
             position: 'relative',
             flexDirection: 'column',
             gap: '1rem',
-            color: darkMode ? '#FFFFFF' : 'black',
+            color: 'black',
             textAlign: 'center',
-            width: '15rem',
-            height: '6rem',
+            width: '10rem',
+            height: '4rem',
             transition: '0.3s ease-in-out all',
             ':hover':{
                 transform: 'translateY(-5px)',
@@ -41,8 +42,12 @@ export default function Card({title, number, loading}: PropsCard) {
             ) : (
                 <Box key={`item-${Math.random()}`}>
                     <Typography 
-                    variant="h5">
-                        {title}
+                    sx={{
+                        fontSize: '14px',
+                        fontWeight: 600
+                    }}
+                    >
+                        {title} - {isOccupied ? 'Ocupada' : 'Livre'}
                     </Typography>
                     <Typography 
                     variant="h6" 
