@@ -1,17 +1,17 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Page from "../../layouts/Page";
+import ListOfCategories from "./ProductsList";
 
 
 export default function HomePage() {
     return(
         <Page
+        sx={{
+            justifyContent: 'start',
+            paddingTop: '2rem'
+        }}
         >
-            <Typography 
-            color={'black'} 
-            variant="h2"
-            >
-                Hello World!
-            </Typography>
+            <ListOfCategories />
         </Page> 
     )
 }

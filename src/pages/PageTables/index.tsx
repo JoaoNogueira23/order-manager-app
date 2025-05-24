@@ -28,11 +28,11 @@ export default function PageTables(){
         const urlRequest = apiURL + '/tables'
         await axios.get(urlRequest)
             .then(response => {
-                alert("Requisição realizada com sucesso!")
+                alert("Mesas atualizadas com sucesso!")
                 setTables(response.data)
             })
             .catch(_err => {
-                alert('Erro no carregamentos dos atestados!', {type: 'error'})
+                alert('Erro no processamento das mesas!', {type: 'error'})
             })
             .finally(() => setLoading(false))
     }
